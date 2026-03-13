@@ -9,16 +9,16 @@ const loadPost = () => {
 
 const displayPost = (posts) => {
     const postContainer = document.getElementById('post-container');
+    postContainer.innerHTML = ''; // Clear previous posts
 
     posts.forEach(post => {
-        console.log(post.title);
-        //create html element
-        const li = document.createElement('li');
-        li.innerText = post.title;
-        console.log(li);
-        //add to the container
-        postContainer.appendChild(li);
+        const postCard = document.createElement('div');
+        postCard.innerHTML =`<div class="post-card">
+            <h2>${post.title}</h2>
+            <p>${post.body}</p>
+        </div>`;
+        postContainer.appendChild(postCard);
+           
     });
 };
-
 loadPost();
